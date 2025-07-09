@@ -6,7 +6,7 @@
 /*   By: gperedny <gperedny@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 12:53:54 by gperedny          #+#    #+#             */
-/*   Updated: 2025/07/09 13:48:07 by gperedny         ###   ########.fr       */
+/*   Updated: 2025/07/09 15:48:42 by gperedny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int	ft_putchar(char c)
 {
-	write(1, &c, 1);
-	return (1);
+	return (write(1, &c, 1));
 }
 
 int	ft_string(char *str)
@@ -28,6 +27,8 @@ int	ft_string(char *str)
 	while (str[i] != '\0')
 	{
 		write(1, &str[i], 1);
+		if (write(1, &str[i], 1) == -1)
+			return (-1);
 		i++;
 	}
 	return (i);
