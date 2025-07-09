@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gperedny <gperedny@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/02 13:17:01 by gperedny          #+#    #+#             */
-/*   Updated: 2025/07/08 16:39:58 by gperedny         ###   ########.fr       */
+/*   Created: 2025/07/09 12:53:28 by gperedny          #+#    #+#             */
+/*   Updated: 2025/07/09 13:46:41 by gperedny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static int	check_conversion(const char sign, va_list args)
 {
@@ -26,7 +26,7 @@ static int	check_conversion(const char sign, va_list args)
 		return (ft_puthex(va_arg(args, unsigned int), "0123456789"));
 	else if (sign == 'x')
 		return (ft_puthex(va_arg(args, unsigned int), "0123456789abcdef"));
-	else if (sign == 'u')
+	else if (sign == 'X')
 		return (ft_puthex(va_arg(args, unsigned int), "0123456789ABCDEF"));
 	else if (sign == '%')
 		return (ft_putchar('%'));
@@ -59,26 +59,29 @@ int	ft_printf(const char *line, ...)
 	return (to_print);
 }
 
-int	main(void)
-{
-	int count;
-	void *p = &count;
+// int	main(void)
+//{
+//	int count;
+//	int cunt;
+//	void *p = &count;
 
-	count = ft_printf("Hi %citch!\n", 'B');
-	printf("we should get %d characters\n", count);
-	count = ft_printf("Hi %s!\n", "Bitch");
-	printf("we should get %d characters\n", count);
-	count = ft_printf("address is %p\n", p);
-	printf("we should get %d characters\n", count);
-	count = ft_printf("2%i is %d too\n", 2, 20);
-	printf("we should get %d characters\n", count);
-	count = ft_printf("Unsigned: %u\n", 123456);
-	printf("Printed %d chars\n", count);
-	count = ft_printf("Hex lower: %x\n", 0xabc123);
-	printf("Printed %d chars\n", count);
-	count = ft_printf("Hex upper: %X\n", 0xabc123);
-	printf("Printed %d chars\n", count);
-	count = ft_printf("100%% sure this works!\n");
-	printf("we should get %d characters\n", count);
-	return (0);
-}
+//	count = ft_printf("Hi %citch!\n", 'B');
+//	printf("we should get %d characters\n", count);
+//	count = ft_printf("Hi %s!\n", "Bitch");
+//	printf("we should get %d characters\n", count);
+//	count = ft_printf("address is %p\n", p);
+//	printf("we should get %d characters\n", count);
+//	count = ft_printf("2%i is %d too\n", -2, 20);
+//	cunt = printf("2%i is %d too\n", -2, 20);
+//	printf("%d\n%d\n", count, cunt);
+//	printf("we should get %d characters\n", count);
+//	count = ft_printf("Unsigned: %u\n", 123456);
+//	printf("Printed %d chars\n", count);
+//	count = ft_printf("Hex lower: %x\n", 0xabc123);
+//	printf("Printed %d chars\n", count);
+//	count = ft_printf("Hex upper: %X\n", 0xabc123);
+//	printf("Printed %d chars\n", count);
+//	count = ft_printf("100%% sure this Bitch works!\n");
+//	printf("we should get %d characters\n", count);
+//	return (0);
+//}

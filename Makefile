@@ -6,7 +6,7 @@
 #    By: gperedny <gperedny@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/03 13:50:25 by gperedny          #+#    #+#              #
-#    Updated: 2025/07/03 16:07:56 by gperedny         ###   ########.fr        #
+#    Updated: 2025/07/09 13:41:13 by gperedny         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,23 +14,25 @@ NAME = libftprintf.a
 CC= cc
 FLAGS = -Wall -Wextra -Werror
 SRCS = \
+printf.c \
+printf_utils.c \
 
 
-DEPS = printf.h
-OBJS = $(SRCS: .c= .o)
+DEPS = ft_printf.h
+OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	make -C libft
-	cp libft/libft.a libft.a
-	ar rcs $(NAME) $(OBJS) libft.a
+	@make -C libft
+	@cp libft/libft.a $(NAME)
+	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c $(DEPS)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(OBJS) libft.a
+	@rm -f $(OBJS)
 	make clean -C  libft
 
 fclean: clean
@@ -39,4 +41,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.SECONDARY: $(OBJS)
